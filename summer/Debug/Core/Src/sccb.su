@@ -1,0 +1,11 @@
+../Core/Inc/delay.h:11:22:sw_delay_us	24	static
+../Core/Src/sccb.c:10:6:SCCB_GPIO_Init	4	static
+../Core/Src/sccb.c:33:6:SCCB_SDA_OUT	32	static
+../Core/Src/sccb.c:51:6:SCCB_SDA_IN	32	static
+../Core/Src/sccb.c:69:6:SCCB_Start	8	static
+../Core/Src/sccb.c:84:6:SCCB_Stop	8	static
+../Core/Src/sccb.c:99:6:SCCB_No_Ack	8	static
+../Core/Src/sccb.c:116:9:SCCB_WriteAbyte	24	static
+../Core/Src/sccb.c:149:9:SCCB_ReadAbyte	16	static
+../Core/Src/sccb.c:173:9:SCCB_Write_Reg	24	static
+../Core/Src/sccb.c:191:9:SCCB_Read_Reg	24	static

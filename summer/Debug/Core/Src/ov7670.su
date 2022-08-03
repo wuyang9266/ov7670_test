@@ -1,0 +1,8 @@
+../Core/Inc/delay.h:26:22:sw_delay_ms	24	static
+../Core/Src/ov7670.c:12:9:OV7670_Init	16	static
+../Core/Src/ov7670.c:87:6:OV7670_Light_Mode	24	static
+../Core/Src/ov7670.c:126:6:OV7670_Color_Saturation	24	static
+../Core/Src/ov7670.c:178:6:OV7670_Brightness	24	static
+../Core/Src/ov7670.c:204:6:OV7670_Contrast	24	static
+../Core/Src/ov7670.c:230:6:OV7670_Special_Effects	24	static
+../Core/Src/ov7670.c:278:6:OV7670_Window_Set	32	static
