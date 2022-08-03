@@ -1,0 +1,253 @@
+21:58:34 **** Incremental Build of configuration Debug for project summer ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:108:69: warning: pointer targets in passing argument 1 of 'strcpy' differ in signedness [-Wpointer-sign]
+  108 |    if(HAL_GPIO_ReadPin(GPIOB,OV7670_SIO_D_Pin)==GPIO_PIN_SET)strcpy(send, "1\r\n");
+      |                                                                     ^~~~
+      |                                                                     |
+      |                                                                     uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/usart.h:11,
+                 from ../Core/Src/main.c:26:
+d:\st\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\include\string.h:38:16: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   38 | char  *strcpy (char *__restrict, const char *__restrict);
+      |                ^
+../Core/Src/main.c:109:16: warning: pointer targets in passing argument 1 of 'strcpy' differ in signedness [-Wpointer-sign]
+  109 |    else strcpy(send, "0\r\n");
+      |                ^~~~
+      |                |
+      |                uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/usart.h:11,
+                 from ../Core/Src/main.c:26:
+d:\st\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\include\string.h:38:16: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   38 | char  *strcpy (char *__restrict, const char *__restrict);
+      |                ^
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:281:13: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  281 |             while(HAL_UART_GetState(&huart1) == HAL_UART_STATE_BUSY_TX);//ï¿???æµ‹UARTå‘ï¿½?ï¿½ç»“ï¿???
+      |             ^~~~~
+../Core/Src/main.c:282:4: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  282 |    Uart1_Rx_Cnt = 0;
+      |    ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "summer.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ST\stm32_workspace\summer\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="summer.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: summer.elf
+ 
+arm-none-eabi-size   summer.elf 
+arm-none-eabi-objdump -h -S  summer.elf  > "summer.list"
+   text	   data	    bss	    dec	    hex	filename
+   9388	     24	   1896	  11308	   2c2c	summer.elf
+Finished building: default.size.stdout
+ 
+Finished building: summer.list
+ 
+21:59:10 **** Incremental Build of configuration Debug for project summer ****
+make -j12 all 
+arm-none-eabi-size   summer.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9388	     24	   1896	  11308	   2c2c	summer.elf
+Finished building: default.size.stdout
+ 
+22:09:51 **** Incremental Build of configuration Debug for project summer ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:108:66: error: assignment to expression with array type
+  108 |    if(HAL_GPIO_ReadPin(GPIOB,OV7670_SIO_D_Pin)==GPIO_PIN_SET)send=1;
+      |                                                                  ^
+../Core/Src/main.c:109:13: error: assignment to expression with array type
+  109 |    else send=0;
+      |             ^
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:281:13: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  281 |             while(HAL_UART_GetState(&huart1) == HAL_UART_STATE_BUSY_TX);//ï¿???æµ‹UARTå‘ï¿½?ï¿½ç»“ï¿???
+      |             ^~~~~
+../Core/Src/main.c:282:4: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  282 |    Uart1_Rx_Cnt = 0;
+      |    ^~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+22:10:19 **** Incremental Build of configuration Debug for project summer ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:33: warning: passing argument 2 of 'HAL_UART_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  110 |    HAL_UART_Transmit_IT(&huart1,send,3);
+      |                                 ^~~~
+      |                                 |
+      |                                 uint8_t {aka unsigned char}
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:727:76: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  727 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:281:13: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  281 |             while(HAL_UART_GetState(&huart1) == HAL_UART_STATE_BUSY_TX);//ï¿???æµ‹UARTå‘ï¿½?ï¿½ç»“ï¿???
+      |             ^~~~~
+../Core/Src/main.c:282:4: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  282 |    Uart1_Rx_Cnt = 0;
+      |    ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "summer.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ST\stm32_workspace\summer\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="summer.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: summer.elf
+ 
+arm-none-eabi-size   summer.elf 
+arm-none-eabi-objdump -h -S  summer.elf  > "summer.list"
+   text	   data	    bss	    dec	    hex	filename
+   9384	     20	   1900	  11304	   2c28	summer.elf
+Finished building: default.size.stdout
+ 
+Finished building: summer.list
+ 
+22:15:28 **** Incremental Build of configuration Debug for project summer ****
+make -j12 all 
+arm-none-eabi-size   summer.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9384	     20	   1900	  11304	   2c28	summer.elf
+Finished building: default.size.stdout
+ 
+22:17:10 **** Incremental Build of configuration Debug for project summer ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:33: warning: passing argument 2 of 'HAL_UART_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  110 |    HAL_UART_Transmit_IT(&huart1,send,1);
+      |                                 ^~~~
+      |                                 |
+      |                                 uint8_t {aka unsigned char}
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:727:76: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  727 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:281:13: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  281 |             while(HAL_UART_GetState(&huart1) == HAL_UART_STATE_BUSY_TX);//ï¿???æµ‹UARTå‘ï¿½?ï¿½ç»“ï¿???
+      |             ^~~~~
+../Core/Src/main.c:282:4: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  282 |    Uart1_Rx_Cnt = 0;
+      |    ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "summer.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ST\stm32_workspace\summer\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="summer.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: summer.elf
+ 
+arm-none-eabi-size   summer.elf 
+arm-none-eabi-objdump -h -S  summer.elf  > "summer.list"
+   text	   data	    bss	    dec	    hex	filename
+   9384	     20	   1900	  11304	   2c28	summer.elf
+Finished building: default.size.stdout
+ 
+Finished building: summer.list
+ 
+22:22:55 **** Incremental Build of configuration Debug for project summer ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:111:33: warning: passing argument 2 of 'HAL_UART_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  111 |    HAL_UART_Transmit_IT(&huart1,send,1);
+      |                                 ^~~~
+      |                                 |
+      |                                 uint8_t {aka unsigned char}
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:727:76: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  727 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:282:13: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  282 |             while(HAL_UART_GetState(&huart1) == HAL_UART_STATE_BUSY_TX);//ï¿???æµ‹UARTå‘ï¿½?ï¿½ç»“ï¿???
+      |             ^~~~~
+../Core/Src/main.c:283:4: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  283 |    Uart1_Rx_Cnt = 0;
+      |    ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "summer.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ST\stm32_workspace\summer\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="summer.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: summer.elf
+ 
+arm-none-eabi-size   summer.elf 
+arm-none-eabi-objdump -h -S  summer.elf  > "summer.list"
+   text	   data	    bss	    dec	    hex	filename
+   9396	     20	   1900	  11316	   2c34	summer.elf
+Finished building: default.size.stdout
+ 
+Finished building: summer.list
+ 
+22:24:35 **** Incremental Build of configuration Debug for project summer ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:33: warning: passing argument 2 of 'HAL_UART_Transmit_IT' makes pointer from integer without a cast [-Wint-conversion]
+  110 |    HAL_UART_Transmit_IT(&huart1,send,1);
+      |                                 ^~~~
+      |                                 |
+      |                                 uint8_t {aka unsigned char}
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:727:76: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  727 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:280:13: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  280 |             while(HAL_UART_GetState(&huart1) == HAL_UART_STATE_BUSY_TX);//ï¿???æµ‹UARTå‘ï¿½?ï¿½ç»“ï¿???
+      |             ^~~~~
+../Core/Src/main.c:281:4: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  281 |    Uart1_Rx_Cnt = 0;
+      |    ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "summer.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ST\stm32_workspace\summer\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="summer.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: summer.elf
+ 
+arm-none-eabi-size   summer.elf 
+arm-none-eabi-objdump -h -S  summer.elf  > "summer.list"
+   text	   data	    bss	    dec	    hex	filename
+   9384	     20	   1900	  11304	   2c28	summer.elf
+Finished building: default.size.stdout
+ 
+Finished building: summer.list
+ 
+22:26:24 **** Incremental Build of configuration Debug for project summer ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:280:13: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  280 |             while(HAL_UART_GetState(&huart1) == HAL_UART_STATE_BUSY_TX);//ï¿???æµ‹UARTå‘ï¿½?ï¿½ç»“ï¿???
+      |             ^~~~~
+../Core/Src/main.c:281:4: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  281 |    Uart1_Rx_Cnt = 0;
+      |    ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "summer.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ST\stm32_workspace\summer\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="summer.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: summer.elf
+ 
+arm-none-eabi-size   summer.elf 
+arm-none-eabi-objdump -h -S  summer.elf  > "summer.list"
+   text	   data	    bss	    dec	    hex	filename
+   9380	     20	   1900	  11300	   2c24	summer.elf
+Finished building: default.size.stdout
+ 
+Finished building: summer.list
+ 
+22:27:48 **** Incremental Build of configuration Debug for project summer ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:280:13: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  280 |             while(HAL_UART_GetState(&huart1) == HAL_UART_STATE_BUSY_TX);//ï¿???æµ‹UARTå‘ï¿½?ï¿½ç»“ï¿???
+      |             ^~~~~
+../Core/Src/main.c:281:4: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  281 |    Uart1_Rx_Cnt = 0;
+      |    ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "summer.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ST\stm32_workspace\summer\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="summer.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: summer.elf
+ 
+arm-none-eabi-size   summer.elf 
+arm-none-eabi-objdump -h -S  summer.elf  > "summer.list"
+   text	   data	    bss	    dec	    hex	filename
+   9376	     20	   1900	  11296	   2c20	summer.elf
+Finished building: default.size.stdout
+ 
+Finished building: summer.list
+ 

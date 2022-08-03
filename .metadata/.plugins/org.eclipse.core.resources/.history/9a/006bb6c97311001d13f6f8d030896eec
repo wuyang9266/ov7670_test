@@ -1,0 +1,30 @@
+#ifndef _DELAY_H
+#define _DELAY_H
+
+#include "stm32f1xx_hal.h"
+
+//΢�������ʱ����
+__STATIC_INLINE void sw_delay_us(uint32_t number_of_us);
+//���������ʱ����
+__STATIC_INLINE void sw_delay_ms(uint32_t number_of_ms);
+
+
+__STATIC_INLINE void sw_delay_us(uint32_t number_of_us)
+{
+	SysTick->LOAD=number_of _us*9;
+	SysTick->VAL = 0x00;//计数器清0
+	SysTick->CTRL = 0x01;//配置异常生效,也就是计数器倒数到0时发出异常通知
+	do
+	{
+		temp = SysTick->CTRL;//时间到,该位将被硬件置1,但被查询后自动清0
+	} while (temp & 0x01 && !(temp &(1 << 16)));//查询
+	SysTick->CTRL = 0x00;//关闭定时器
+	SysTick->VAL = 0x00;//清空val,清空定时器
+}
+__STATIC_INLINE void sw_delay_ms(uint32_t number_of_ms)
+{
+    sw_delay_us(1000*number_of_ms);
+}
+
+#endif
+

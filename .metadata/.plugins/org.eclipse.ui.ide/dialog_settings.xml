@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="true"/>
+	</section>
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="E:\learn\summer_hardware\stm32\STM32F103ZET6-Camera-Data-Transfer-master\STM32F103ZET6-Camera-Data-Transfer-master\OV7670"/>
+			<item value="E:\learn\summer_hardware\stm32\camera-master\camera-master"/>
+			<item value="C:\Users\shensy\STM32Cube\Repository\STM32Cube_FW_F1_V1.8.4\Projects\STM32F103RB-Nucleo\Examples\I2C\I2C_TwoBoards_ComDMA"/>
+			<item value="E:\learn\summer_hardware\stm32\OV7670_STM32-main\OV7670_STM32-main"/>
+		</list>
+	</section>
+</section>

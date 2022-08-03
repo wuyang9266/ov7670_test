@@ -1,0 +1,30 @@
+typedef struct Reg {
+	uint8_t Address; /* 寄存器地址*/
+	uint8_t Value; /* 寄存器值*/
+} Reg_Info;
+
+/* （bsp_ov7725.h 文件）寄存器地址宏定义*/
+#define REG_GAIN 0x00
+#define REG_BLUE 0x01
+#define REG_RED 0x02
+#define REG_GREEN 0x03
+#define REG_BAVG 0x05
+#define REG_GAVG 0x06
+#define REG_RAVG 0x07
+#define REG_AECH 0x08
+#define REG_COM2 0x09
+/*... 以下省略大部分寄存器地址*/
+/* （bsp_ov7725.c 文件）寄存器参数配置，左侧为地址，右侧为要写入的值*/
+Reg_Info Sensor_Config[] = {
+	{REG_CLKRC, 0x00}, /* 时钟配置*/
+	{REG_COM7, 0x46}, /*QVGA RGB565 */
+	{REG_HSTART, 0x3f}, /* 水平图像开始*/
+	{REG_HSIZE, 0x50}, /* 水平图像宽度*/
+	{REG_VSTRT, 0x03}, /* 垂直开始*/
+	{REG_VSIZE, 0x78}, /* 垂直高度*/
+	{REG_HREF, 0x00}, /* 杂项*/
+	{REG_HOutSize, 0x50}, /* 水平输出宽度*/
+	{REG_VOutSize, 0x78}, /* 垂直输出高度*/
+	{REG_EXHCH, 0x00}, /* 杂项*/
+	/*... 以下省略大部分内容.*/
+};

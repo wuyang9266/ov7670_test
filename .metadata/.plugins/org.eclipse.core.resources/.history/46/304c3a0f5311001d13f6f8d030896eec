@@ -1,0 +1,17 @@
+/*
+ * usart.h
+ *
+ *  Created on: Aug 1, 2022
+ *      Author: shensy
+ */
+
+#ifndef INC_USART_H_
+#define INC_USART_H_
+
+#include <string.h>
+#define RxBufferSize 256
+char RxBuffer[RxBufferSize];
+uint8_t aRxBuffer;
+uint8_t UART1_RX_Cnt = 0;//接收缓冲计数
+
+#endif /* INC_USART_H_ */

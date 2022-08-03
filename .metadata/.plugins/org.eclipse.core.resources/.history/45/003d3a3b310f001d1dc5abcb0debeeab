@@ -1,0 +1,35 @@
+#include"bsp_ov7670.h"
+/************************************************
+* 函数名：Sensor_Init
+* 描述：Sensor 初始化
+* 输入：无
+* 输出：返回1 成功，返回0 失败
+* 注意：无
+************************************************/
+ErrorStatus OV7725_Init(void)
+{
+	uint16_t i = 0;
+	uint8_t Sensor_IDCode = 0;
+	//开始配置ov7725
+	if ( 0 == SCCB_WriteByte ( 0x12, 0x80 ) ) { /* 复位ov7725 */
+	//sccb 写数据错误
+	return ERROR ;
+	}
+	/* 读取ov7725 ID 号*/
+	if ( 0 == SCCB_ReadByte( &Sensor_IDCode, 1, 0x0b ) ) {
+	//读取ov7725 ID 失败
+	return ERROR;
+	}
+	if (Sensor_IDCode == OV7725_ID) {
+	for ( i = 0 ; i < OV7725_REG_NUM ; i++ ) {
+	if ( 0 == SCCB_WriteByte(Sensor_Config[i].Address,Sensor_Config[i].Value) )
+	{ //DEBUG("write reg faild", Sensor_Config[i].Address);
+	return ERROR;
+	}
+	}
+	} else {
+	return ERROR;
+	}
+	//ov7725 寄存器配置成功
+	return SUCCESS;
+}
